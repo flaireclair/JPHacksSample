@@ -17,8 +17,18 @@ public protocol TargetType {
 
 // 実行されるAPIの種類を管理
 public enum API {
-    // プロフィール取得API
+    case users
+    case plants
+    case userPlants
+    case user(Int)
+    case userChange(Int)
+    case userDelete(Int)
+    case plant(Int)
     case profile(Int)
+    case userPlant(Int)
+    case userPlantChange(Int)
+    case userPlantDelete(Int)
+    case plantWatering(Int)
 }
 
 extension API: TargetType {
@@ -28,16 +38,59 @@ extension API: TargetType {
 
     public var path : String {
         switch self {
-        // プロフィール取得
-        case .profile(let user_id):
-            return "\(domain)" + "/user/\(user_id)"
+        case .users:
+            return "\(domain)" + "/users"
+        case .plants:
+            return "\(domain)" + "/plants"
+        case .userPlants:
+            return "\(domain)" + "/user/cultivations"
+        case .user:
+            return "\(domain)" + "/user"
+        case .userChange:
+            return "\(domain)" + "/user"
+        case .userDelete:
+            return "\(domain)" + "/user"
+        case .plant(let plantId):
+            return "\(domain)" + "/plants/\(plantId)"
+        case .profile(let userId):
+            return "\(domain)" + "/users/\(userId)"
+        case .userPlant(let plantId):
+            return "\(domain)" + "/user/cultivations/\(plantId)"
+        case .userPlantChange(let plantId):
+            return "\(domain)" + "/user/cultivations/\(plantId)"
+        case .userPlantDelete(let plantId):
+            return "\(domain)" + "/user/cultivations/\(plantId)"
+        case .plantWatering(let plantId):
+            return "\(domain)" + "/user/cultivations/\(plantId)/watering"
         }
     }
 
     public var method: String {
         switch self {
+        case .users:
+            return "POST"
+        case .plants:
+            return "GET"
+        case .user:
+            return "GET"
+        case .userChange:
+            return "PUT"
+        case .userDelete:
+            return "DELETE"
+        case .plant:
+            return "GET"
         case .profile:
             return "GET"
+        case .userPlants:
+            return "GET"
+        case .userPlant:
+            return "GET"
+        case .userPlantChange:
+            return "PUT"
+        case .userPlantDelete:
+            return "DELETE"
+        case .plantWatering:
+            return "POST"
         }
     }
 }

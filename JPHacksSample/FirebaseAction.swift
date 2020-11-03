@@ -18,8 +18,9 @@ class FirebaseAction: NSObject {
     func fileupload(dataUrlStr: String?) -> String {
         //保存するURLを指定
         let storageRef = storage.reference(forURL: "path/to/project/url")
+        let uuid = UUID()
         //ディレクトリを指定
-        let imageRef = storageRef.child("User").child("image.jpg")
+        let imageRef = storageRef.child("images").child(userID).child("\(uuid).jpg")
         
         guard let dataUrlStr = dataUrlStr else {
                 return ""

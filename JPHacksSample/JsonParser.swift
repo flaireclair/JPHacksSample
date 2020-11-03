@@ -19,8 +19,30 @@ class JsonParser: NSObject {
     // 叩くAPIによってparseするタイプを出しわけ
     func parseJson(_ api: API, json: JSON) -> Any? {
         switch api {
+        case .users:
+            return nil
+        case .plants:
+            return self.parsePlantsApiJson(json)
+        case .userPlants:
+            return nil
+        case .user:
+            return self.parseProfileApiJson(json)
+        case .userChange:
+            return nil
+        case .userDelete:
+            return nil
+        case .plant:
+            return self.parsePlantApiJson(json)
         case .profile:
             return self.parseProfileApiJson(json)
+        case .userPlant:
+            return self.parsePlantApiJson(json)
+        case .userPlantChange:
+            return nil
+        case .userPlantDelete:
+            return nil
+        case .plantWatering:
+            return nil
         }
     }
 
@@ -35,9 +57,20 @@ class JsonParser: NSObject {
         return userModel
     }
     
+    private func parsePlantsApiJson(_ json: JSON) -> Array<PlantModel> {
+        var plantArr = Array<PlantModel>()
+        if let tmpArr = json.array{
+            for obj in tmpArr {
+                let plantModel = parsePlantApiJson(obj)
+                plantArr.append(plantModel)
+            }
+        }
+        return plantArr
+    }
+    
     // 植物情報取得
-    private func parsePlantApiJson(_ json: JSON) -> PlantsModel {
-        let plantModel = PlantsModel()
+    private func parsePlantApiJson(_ json: JSON) -> PlantModel {
+        let plantModel = PlantModel()
         plantModel.id = json["id"].int
         plantModel.name = json["name"].string
         plantModel.kit_name = json["name"].string
@@ -67,21 +100,5 @@ class JsonParser: NSObject {
         }
 
         return plantModel
-    }
-    
-    // ユーザー所持植物情報取得
-    private func parseUserPlantApiJson(_ json: JSON) -> UserPlantModel {
-        let userPlantModel = UserPlantModel()
-        userPlantModel.id = json["id"].int
-        userPlantModel.name = json["name"].string
-        userPlantModel.kit_name = json["name"].string
-        userPlantModel.plant_description = json["name"].string
-        userPlantModel.price = json["price"].int
-        userPlantModel.period = json["period"].int
-        userPlantModel.difficurty = json["difficurty"].int
-        userPlantModel.season_from = json["season_from"].int
-        userPlantModel.season_to = json["season_to"].int
-
-        return userPlantModel
     }
 }

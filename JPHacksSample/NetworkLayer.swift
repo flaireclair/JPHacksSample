@@ -87,8 +87,6 @@ class NetworkLayer: NSObject {
             break
         case "DELETE":
             requestMethod = .delete
-        case "PATCH":
-            requestMethod = .patch
         default:
             requestMethod = .get
             break
