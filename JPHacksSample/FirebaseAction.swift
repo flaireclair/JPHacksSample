@@ -47,7 +47,7 @@ class FirebaseAction: NSObject {
         }
         return downloadUrl
     }
-    func uploadDocument(data: String, url: String){
-        
+    func uploadChatData(from: String, to: String, message: String? = nil, imageUrl: String? = nil){
+        databaseRef.child("chat").childByAutoId().setValue(["from": from, "to": to, "message": message, "image_url": imageUrl])
     }
 }
