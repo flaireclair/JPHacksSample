@@ -20,7 +20,7 @@ class NetworkLayer: NSObject {
 
     var api: API!
     var parameters: [String : Any]?
-    var headers: [String : String]?
+    var headers: HTTPHeaders?
 
     var alamofireManager : Alamofire.Session?
     var request : DataRequest?
@@ -44,7 +44,7 @@ class NetworkLayer: NSObject {
         self.alamofireManager = Alamofire.Session.default
     }
 
-    func requestApi(api: API, parameters: [String : AnyObject]?, headers: [String: String]?) {
+    func requestApi(api: API, parameters: [String : AnyObject]?, headers:HTTPHeaders?) {
         self.showApiLog(api)
         self.sessionConfiguration()
 
@@ -62,7 +62,8 @@ class NetworkLayer: NSObject {
             api.path,
             method: self.getMethod(api),
             parameters: self.parameters,
-            encoding: JSONEncoding.default
+            encoding: JSONEncoding.default,
+            headers: self.headers
             ).responseJSON { response in
                 switch(response.result) {
                 case .success(let json):
