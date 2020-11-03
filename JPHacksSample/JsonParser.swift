@@ -41,12 +41,30 @@ class JsonParser: NSObject {
         plantModel.id = json["id"].int
         plantModel.name = json["name"].string
         plantModel.kit_name = json["name"].string
-        plantModel.plant_escription = json["name"].string
+        plantModel.plant_description = json["name"].string
         plantModel.price = json["price"].int
         plantModel.period = json["period"].int
         plantModel.difficurty = json["difficurty"].int
         plantModel.season_from = json["season_from"].int
         plantModel.season_to = json["season_to"].int
+        if let tmpArr = json["temperatures"].array{
+            for obj in tmpArr {
+                let temperature = Temperature()
+                temperature.id = obj["id"].int
+                temperature.name = obj["name"].string
+                temperature.value = obj["value"].int
+                plantModel.temperatures?.append(temperature)
+            }
+        }
+        if let tmpArr = json["waters"].array{
+            for obj in tmpArr {
+                let water = Water()
+                water.id = obj["id"].int
+                water.name = obj["name"].string
+                water.value = obj["value"].int
+                plantModel.waters?.append(water)
+            }
+        }
 
         return plantModel
     }
@@ -57,7 +75,7 @@ class JsonParser: NSObject {
         userPlantModel.id = json["id"].int
         userPlantModel.name = json["name"].string
         userPlantModel.kit_name = json["name"].string
-        userPlantModel.plant_escription = json["name"].string
+        userPlantModel.plant_description = json["name"].string
         userPlantModel.price = json["price"].int
         userPlantModel.period = json["period"].int
         userPlantModel.difficurty = json["difficurty"].int

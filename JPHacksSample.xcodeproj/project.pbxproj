@@ -30,9 +30,7 @@
 		1DDAFCC825500CAF00B0A4C1 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1DDAFCC725500CAF00B0A4C1 /* FirebaseFunctions */; };
 		1DDAFCCA25500CAF00B0A4C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1DDAFCC925500CAF00B0A4C1 /* FirebaseAuth */; };
 		1DDAFCCC25500CAF00B0A4C1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1DDAFCCB25500CAF00B0A4C1 /* FirebaseMessaging */; };
-		1DDAFCE22550443200B0A4C1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAFCE12550443200B0A4C1 /* UserModel.swift */; };
-		1DDAFCEA2550F0C300B0A4C1 /* PlantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAFCE92550F0C200B0A4C1 /* PlantsModel.swift */; };
-		1DDAFCF42550F29A00B0A4C1 /* UserPlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAFCF32550F29A00B0A4C1 /* UserPlantModel.swift */; };
+		1DDAFCFC25510C3400B0A4C1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDAFCFB25510C3400B0A4C1 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +69,7 @@
 		1DDAFC85254D78C600B0A4C1 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		1DDAFC8A254D791900B0A4C1 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		1DDAFCB425500A7700B0A4C1 /* FirebaseAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAction.swift; sourceTree = "<group>"; };
-		1DDAFCE12550443200B0A4C1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		1DDAFCE92550F0C200B0A4C1 /* PlantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsModel.swift; sourceTree = "<group>"; };
-		1DDAFCF32550F29A00B0A4C1 /* UserPlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlantModel.swift; sourceTree = "<group>"; };
+		1DDAFCFB25510C3400B0A4C1 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +131,7 @@
 		1DDAFC40254D6FD500B0A4C1 /* JPHacksSample */ = {
 			isa = PBXGroup;
 			children = (
-				1DDAFCE12550443200B0A4C1 /* UserModel.swift */,
-				1DDAFCE92550F0C200B0A4C1 /* PlantsModel.swift */,
-				1DDAFCF32550F29A00B0A4C1 /* UserPlantModel.swift */,
+				1DDAFCFB25510C3400B0A4C1 /* Models.swift */,
 				1DDAFC41254D6FD500B0A4C1 /* AppDelegate.swift */,
 				1DDAFC80254D789100B0A4C1 /* ApiPath.swift */,
 				1DDAFC85254D78C600B0A4C1 /* NetworkLayer.swift */,
@@ -320,16 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDAFCFC25510C3400B0A4C1 /* Models.swift in Sources */,
 				1DDAFC46254D6FD500B0A4C1 /* ViewController.swift in Sources */,
 				1DDAFC42254D6FD500B0A4C1 /* AppDelegate.swift in Sources */,
-				1DDAFCE22550443200B0A4C1 /* UserModel.swift in Sources */,
 				1DDAFC8B254D791900B0A4C1 /* JsonParser.swift in Sources */,
 				1DDAFC44254D6FD500B0A4C1 /* SceneDelegate.swift in Sources */,
-				1DDAFCEA2550F0C300B0A4C1 /* PlantsModel.swift in Sources */,
 				1DDAFC86254D78C600B0A4C1 /* NetworkLayer.swift in Sources */,
 				1DDAFCB525500A7700B0A4C1 /* FirebaseAction.swift in Sources */,
 				1DDAFC81254D789100B0A4C1 /* ApiPath.swift in Sources */,
-				1DDAFCF42550F29A00B0A4C1 /* UserPlantModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

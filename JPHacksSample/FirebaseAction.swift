@@ -49,5 +49,5 @@ class FirebaseAction: NSObject {
     }
     func uploadChatData(from: String, to: String, message: String? = nil, imageUrl: String? = nil){
         databaseRef.child("chat").childByAutoId().setValue(["from": from, "to": to, "message": message, "image_url": imageUrl])
-    }
+    }   
 }
